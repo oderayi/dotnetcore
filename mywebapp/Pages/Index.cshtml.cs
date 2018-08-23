@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace mywebapp.Pages
 {
@@ -17,6 +18,8 @@ namespace mywebapp.Pages
     }
 
     public IList<Customer> Customers { get; private set; }
+
+    public string Message { get; set;  }
 
     public async Task OnGetAsync(){
       Customers = await _db.Customers.AsNoTracking().ToListAsync();
